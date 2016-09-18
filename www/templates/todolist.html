@@ -1,0 +1,25 @@
+<ion-pane>
+    <ion-header-bar><h1 class="title">Todos</h1>
+    <button class="button button-icon" ng-click="newTask()">
+        <i class="ion-compose icon"></i>
+    </button>
+    </ion-header-bar>
+    <ion-content>
+        <ion-list>
+            <ion-item
+                    class="item-icon-right"
+                    ng-repeat="todo in todos"
+                    ng-click="toggleState(todo)"
+                    ng-class="(todo.done == 1) ? 'completed' : ''">
+                <i class="icon ion-ios-arrow-left"></i>
+                <ion-option-button class="button-assertive" ng-click="remove(todo, $index)">
+                    Delete
+                </ion-option-button>
+                <ion-option-button class="button-energized" ng-click="edit(todo)">
+                    Edit
+                </ion-option-button>
+                {{todo.name}}
+            </ion-item>
+        </ion-list>
+    </ion-content>
+</ion-pane>
